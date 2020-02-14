@@ -113,10 +113,10 @@ Page({
   
   getQiniuToken: function() {
     var that = this
-    var url = "/auth/qiniu" 
+    var url = "/auth/qiniu/" 
     var params = {} 
     var header = {token: app.globalData.token}
-    requestHandler.syncGetRequest(url, params, header).then(res => {
+    requestHandler.syncRequest(url, params, header, "GET").then(res => {
       this.uploadImage(res.data['token'], res.data['bucketname'])
     })
   },
@@ -209,6 +209,12 @@ Page({
 
     getsubmit: function(e) {
       let values = e.detail.value 
+      if (this.data.imageURL == null || this.data.imageURL == "") {
+        wx.showToast({
+          title: '图片不能为空!',
+          icon: 'none', 
+        })
+      }
       if (values.sell_title == null || values.sell_title == "") {
         wx.showToast({
           title: '书名不能为空!',
@@ -235,4 +241,27 @@ Page({
       }
     }, 
 
+    publishBook: function(e) {
+      var that = this
+      var url = "/book/publish/"
+      var data = {
+        picture: this.data.imageURL, 
+        price: this.data.price, 
+        name: this.data.bookName, 
+        title: this.data.bookName, 
+        contact: this.data.contact, 
+        information: this.data.information, 
+        tags: this.data.tags, 
+      }
+      var header = { token: app.globalData.token }
+      requestHandler.syncRequest(url, data, header, "POST").then(res => {
+          wx.showToast({
+            title: '发布成功!', 
+          })
+          wx.navigateTo({
+            // url: '/pages/market/market',
+            url: '/pages/book_detail/book_detail?book_id=' + res.data['book_id'],
+          })
+      }) 
+    },  
   });

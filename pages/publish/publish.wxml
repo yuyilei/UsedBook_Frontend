@@ -44,6 +44,6 @@
         <input class="input01" type="digit" name="sell_press" placeholder="0" bindinput="pressInput" value="{{sell_press}}" />
 
       </view>
-      <button form-type="submit" class="button_type">发布</button>
+      <button form-type="submit" class="button_type" bindtap="publishBook">发布</button>
     </form>
 </view>

@@ -1,0 +1,14 @@
+/* pages/mycoin/mycoin.wxss */
+
+.menu_style{
+  margin: 0rpx;
+}
+
+.menu-optional{
+  margin: 0rpx;
+  margin-top: 5rpx;
+  height: 80rpx;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+}

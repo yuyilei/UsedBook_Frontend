@@ -1,0 +1,62 @@
+.detail-type{
+  height: 100%;
+}
+
+.detail-type1{
+  margin: 30rpx;
+}
+
+.image-type{
+  height: 400rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.image-type image{
+  width: 100%;
+  height: 100%;
+}
+
+.cut-line{
+  display: flex;
+  height: 5rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 10rpx;
+  margin-right:10rpx;
+  background-color: #eee;
+}
+
+
+.title-type{
+  white-space: pre-wrap;
+  word-wrap:break-word;
+}
+
+
+.price_style{
+  font-size: 35rpx;
+  color: rgb(243, 98, 31);
+  text-align: center；
+}
+
+
+.press-style2{
+  flex-wrap: nowrap;
+  display: flex;
+  margin-top: 10rpx;
+  margin-left: 230rpx;
+  width: 200rpx;
+}
+
+
+.button_type {
+  height: 75rpx;
+  left: 29%;
+  bottom: 0rpx;
+  background-color: #d9d3ec;
+  position: absolute;
+  width: 88%;
+}

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/market/market",
+    "pages/publish/publish",
+    "pages/me/me",
+    "pages/book_detail/book_detail",
+    "pages/published/published",
+    "pages/interested/interested",
+    "pages/bought/bought",
+    "pages/mycoin/mycoin",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#56abe4",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+  "list": [
+    {
+      "pagePath": "pages/market/market",
+      "iconPath": "images/tabbar/market.png",
+      "selectedIconPath": "images/tabbar/market.png",
+      "text": "市场"
+    },
+    {
+      "pagePath": "pages/publish/publish",
+      "iconPath": "images/tabbar/publish.png",
+      "selectedIconPath": "images/tabbar/publish.png",
+      "text": "发布"
+    },
+    {
+      "pagePath": "pages/me/me",
+      "iconPath": "images/tabbar/me.png",
+      "selectedIconPath": "images/tabbar/me.png",
+      "text": "我"
+    }
+  ], 
+  "position": "bottom"
+  }
+}

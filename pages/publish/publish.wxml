@@ -1,0 +1,49 @@
+<!--pages/publish/publish.wxml-->
+<view class="recommend-bar">
+   <text decode="true">&nbsp;&nbsp;</text>
+</view>
+
+
+<view class="page_setup1">
+    <form bindsubmit="getsubmit">
+    <view style="height:30rpx"></view>
+      <view class="image_upload">
+        <image src="{{imageURL}}" class="image_style" bindtap="chooseImage"></image>
+        <scroll-view scroll-x="true" class="image_upload1">
+        </scroll-view>
+      </view>
+
+      <view class="target_style">
+        <view class="border_line"></view>
+        <!-- <text style="margin-left:50rpx">商品名：</text> -->
+        <textarea class="textarea01" placeholder="在此输入书名" name="sell_title" value="{{sell_title}}" bindblur="nameinput"></textarea>
+      </view>
+
+      <view class="target_style">
+        <view class="border_line"></view>
+        <!-- <text style="margin-left:50rpx">标签：</text> -->
+        <textarea class="textarea03" placeholder="在此输入标签(以空格分开)" name="sell_label" value="{{sell_label}}" bindblur="labelinput"></textarea>
+      </view>
+
+      <view class="target_style">
+        <view class="border_line"></view>
+        <!-- <text style="margin-left:50rpx">详细信息：</text> -->
+        <textarea class="textarea02" placeholder="在此输入书本详情" name="sell_detail" value="{{sell_detail}}" bindinput="detailinput"></textarea>
+      </view>
+
+      <view class="target_style">
+        <view class="border_line"></view>
+        <!-- <text style="margin-left:50rpx">联系方式：</text> -->
+        <textarea class="textarea03" placeholder="在此输入联系方式。例如，电话：123456" value="{{sell_connect}}" name="sell_connect" bindinput="contactinput"></textarea>
+      </view>
+
+      <view class="border_line"></view>
+
+      <view class="pressandclass">
+        <text>价格：</text>
+        <input class="input01" type="digit" name="sell_press" placeholder="0" bindinput="pressInput" value="{{sell_press}}" />
+
+      </view>
+      <button form-type="submit" class="button_type">发布</button>
+    </form>
+</view>

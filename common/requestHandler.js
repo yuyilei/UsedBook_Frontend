@@ -3,12 +3,12 @@ const app = getApp()
 const server = app.globalData.hostName + app.globalData.port
 console.log(server);
 //默认请求
-function syncGetRequest(url, params, header) {
+function syncRequest(url, data, header, method) {
   let promisevariable = new Promise(function (resolve, reject) {
     wx.request({
       url: server + url,
-      data: params,
-      method: 'GET',
+      data: data,
+      method: method,
       header: header,
       success: function (result) {
         var status = result.statusCode;
@@ -44,5 +44,5 @@ function syncGetRequest(url, params, header) {
 }
 
 module.exports = {
-  syncGetRequest: syncGetRequest,//公布公共请求接口
+  syncRequest: syncRequest,//公布公共请求接口
 }

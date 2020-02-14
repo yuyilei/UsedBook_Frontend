@@ -134,7 +134,6 @@ Page({
   },
 
   todetail: function (e) {
-    console.log(e.currentTarget.dataset.id), 
     wx.navigateTo({
       url: '/pages/book_detail/book_detail?book_id=' + e.currentTarget.dataset.id,
     })

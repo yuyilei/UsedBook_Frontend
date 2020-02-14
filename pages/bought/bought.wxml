@@ -1,5 +1,9 @@
-<!--pages/bought/bought.wxml-->
-<view class="content-list" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
+<!-- 推荐标题 -->
+<view class="recommend-bar">
+   <text decode="true">&nbsp;&nbsp;</text>
+</view>
+
+<view class="content-list" data-id="{{item.id}}" data-bookid="{{item.id}}" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
   <view class="content-list-top"></view>
   <view class="list-item">
     <image src="{{item.image}}"></image>
@@ -9,20 +13,13 @@
   {{item.name}}
   </view> 
 
+
+
   <!-- 简介 -->
   <view class="brief-style">
   <text class="brief_style" decode="true">{{item.brief}}</text>
   </view>
-
-  <!-- 价格 -->
-   <view class="press-style">
-    <text class="price_style" decode="true">^&nbsp;{{item.prize}}</text>
-    <view wx:if="{{item.islike == false}}" class="notlike-style">
-      <image src="../../images/tabbar/notlike.png"></image>
-    </view>
-    <view wx:if="{{item.islike == true}}" class="like-style">
-      <image src="../../images/tabbar/like.png"></image>
-    </view>
-  </view> 
-
 </view>
+
+   
+

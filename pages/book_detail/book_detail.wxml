@@ -23,36 +23,42 @@
 
     <view class="cut-line"></view>
 
+    <view class="title-type" style="height:100rpx">标签：\n{{item.tags}}</view>
+
+    <view class="cut-line"></view>
+
     <view class="title-type" style="height:150rpx">详细信息：\n{{item.brief}}</view>
 
+  
      <!-- 价格 -->
    <view class="press-style2">
     <text class="price_style" decode="true">^&nbsp;{{item.price}}</text>
-    <view wx:if="{{item.islike == false}}" class="notlike-style">
-      <image src="../../images/tabbar/notlike.png"></image>
+
+    <view bindtap="collect" data-id="{{item.id}}" data-index="{{index}}" data-islike="{{item.islike}}" class="like-style"> 
+      <image src="../../images/tabbar/notlike.png" wx:if="{{item.islike == false}}"></image>
+      <image src="../../images/tabbar/like.png" wx:else></image>
     </view>
-    <view wx:if="{{item.islike == true}}" class="like-style">
-      <image src="../../images/tabbar/like.png"></image>
+    <view class="collect-count-style">
+      <text decode="true">&nbsp;{{item.collect_count}}</text>
     </view>
   </view> 
 
   <!-- todo： 判断是不是自己，显示不同的按钮 -->
   <!-- 不是自己发布的，显示购买按钮-->
-  <view wx:if="{{item.ispublisher == false}}" class="notlike-style"> 
-  <button form-type="submit" data-id="{{item.id}}" bindtap="topurchase" class="button_type">购买</button>
+  <view wx:if="{{item.finished == false}}" class="notlike-style">
+
+  <view data-id="{{item.id}}" data-index="{{index}}" bindtap="topurchase" class="notlike-style">
+  <button form-type="submit" wx:if="{{item.ispublisher == false}}" class="button_type">购买</button>
   </view>
   
   <!---是自己发布的，根据状态不同，显示上架/下架 -->
   <view wx:if="{{item.ispublisher == true}}" class="notlike-style">
-  <view wx:if="{{item.onsell == true}}" class="notlike-style">
-  <button form-type="submit" data-id="{{item.id}}" bindtap="putoff" class="button_type">下架</button>
-  </view>
-  <view wx:if="{{item.onsell == false}}" class="notlike-style">
-  <view wx:if="{{item.finished == false}}" class="notlike-style">
-  <button form-type="submit" class="button_type">上架</button>
-  </view>
+  <view data-id="{{item.id}}" data-index="{{index}}" data-on="{{item.onsell}}" bindtap="puton" class="notlike-style">
+  <button form-type="submit" wx:if="{{item.onsell == true}}" class="button_type">下架</button>
+  <button form-type="submit" wx:else class="button_type">上架</button>
   </view>
   </view> 
+  </view>
   
     <view class="cut-line"></view>
 

@@ -1,35 +1,31 @@
 // pages/bought/bought.js
+const app = getApp()
+const requestHandler = require('../../common/requestHandler.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    second_data: [
-      {
-        name: '计算机组成原理',
-        prize: '15',
-        id: 1,
-        islike: false,
-        image: '../../images/book/os.jpg',
-        brief: '书很新，笔记很少，是正版'
-      },
-      {
-        name: '现代操作系统',
-        prize: '20',
-        id: 2,
-        islike: true,
-        image: '../../images/book/os.jpg',
-        brief: '和习题解答一起出'
-      }
-    ],
+    second_data: null, 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var url = "/user/bought/"
+    var data = {
 
+    }
+    var header = { token: app.globalData.token }
+    requestHandler.syncRequest(url, data, header, "GET").then(res => {
+      that.setData({
+        second_data: res.data["book_list"]
+      })
+    }) 
   },
 
   /**
@@ -79,5 +75,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  }, 
+
+  todetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/book_detail/book_detail?book_id=' + e.currentTarget.dataset.bookid,
+    })
+  },
 })

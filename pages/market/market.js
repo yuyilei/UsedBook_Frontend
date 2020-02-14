@@ -1,4 +1,5 @@
 const app = getApp() 
+const requestHandler = require('../../common/requestHandler.js'); 
 
 Page({
 
@@ -47,7 +48,6 @@ Page({
     else {
     // 给app.js 定义一个方法。
     app.userTokenReadyCallback = res => {
-      console.log('userInfoReadyCallback: ', res);
       console.log('获取用户信息成功');
       that.setData({
         token: res
@@ -77,7 +77,7 @@ Page({
         console.log("错误！" + res.second_data['message'])
         wx.showToast({ title: '系统错误' })
       },
-    }) 
+    })  
   },
 
   /**

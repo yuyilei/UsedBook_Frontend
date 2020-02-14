@@ -1,1 +1,43 @@
 /* pages/interested/interested.wxss */
+
+.recommend-bar-tb{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 5rpx;
+  display: flex;
+  background-color: #66ffff;
+}
+
+.brief_style{
+  font-size: 25rpx;
+  color: rgb(188, 186, 197);
+}
+
+
+.price_style{
+  font-size: 30rpx;
+  color: rgb(243, 98, 31);
+}
+
+.collect-count-style{
+  color: rgb(188, 186, 197);
+}
+
+.onsell_style{
+  font-size: 25rpx;
+  color: rgb(240, 189, 122);
+}
+
+.offsell_style{
+  font-size: 25rpx;
+  color: rgb(243, 98, 31);
+}
+
+.selt_style{
+  font-size: 25rpx;
+  color: rgba(108, 218, 126, 0.726);
+}
+
+.collect-count-style{
+  color: rgb(188, 186, 197);
+}

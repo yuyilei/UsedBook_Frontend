@@ -61,8 +61,8 @@
 .like-style image{
   margin-top: 0rpx;
   margin-left: 100rpx;
-  height: 33rpx;
-  width: 33rpx;
+  height: 35rpx;
+  width: 35rpx;
 }
 
 .brief-style{
@@ -70,6 +70,16 @@
   margin-left:230rpx;
   height: 150rpx;
   width: 450rpx;
+  position: absolute;
+  text-overflow:ellipsis;
+  word-wrap:break-word;
+}
+
+.status-style{
+  margin-top:100rpx;
+  margin-left:230rpx;
+  height: 50rpx;
+  width: 80rpx;
   position: absolute;
   text-overflow:ellipsis;
   word-wrap:break-word;

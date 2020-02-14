@@ -20,8 +20,9 @@
    <text decode="true">&nbsp;&nbsp;</text>
 </view>
 
-<view class="content-list" data-id="{{item.id}}" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
+<view class="content-list"  wx:for="{{second_data}}"  wx:key= "id">
   <view class="content-list-top"></view>
+  <view data-id="{{item.id}}" bindtap="todetail" class="detail-range">
   <view class="list-item">
     <image src="{{item.image}}"></image>
   </view>
@@ -35,15 +36,24 @@
   <text class="brief_style" decode="true">{{item.brief}}</text>
   </view>
 
+  </view>
+
   <!-- 价格 -->
    <view class="press-style">
     <text class="price_style" decode="true">^&nbsp;{{item.price}}</text>
+    
+     <view bindtap="collect" data-id="{{item.id}}" data-index="{{index}}" data-islike="{{item.islike}}" class="like-style"> 
+      <image src="../../images/tabbar/notlike.png" wx:if="{{item.islike == false}}"></image>
+      <image src="../../images/tabbar/like.png" wx:else></image>
+    </view> 
+    <!--
     <view wx:if="{{item.islike == false}}" class="notlike-style">
       <image src="../../images/tabbar/notlike.png"></image>
     </view>
     <view wx:if="{{item.islike == true}}" class="like-style">
       <image src="../../images/tabbar/like.png"></image>
     </view>
+     -->
     <view class="collect-count-style">
     <text decode="true">&nbsp;{{item.collect_count}}</text>
     </view>

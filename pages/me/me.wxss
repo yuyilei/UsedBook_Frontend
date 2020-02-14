@@ -24,8 +24,8 @@
 .menu-optional{
   margin: 0rpx;
   margin-top: 5rpx;
-  height: 80rpx;
-  background-color: #eee;
+  height: 75rpx;
+  background-color: #dee8ece3;
   display: flex;
   align-items: center;
 }
@@ -66,4 +66,11 @@
 
 .userinfo-nickname::after {
   border: none;
+}
+
+.recommend-bar{
+  margin-left: 0rpx;
+  margin-right: 00rpx;
+  background-color: #d9d3ec;
+
 }

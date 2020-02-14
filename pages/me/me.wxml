@@ -1,13 +1,9 @@
 <!--pages/me/me.wxml-->
 
 <view>
-  <!-- 用于显示头像 -->
+<!--
   <view class="my_profile">
-    <!-- <image src="{{avatarUrl}}" ></image> -->
-    <!-- <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取</button>
-    </view>  -->
+  
     <view class="image_style">
     <open-data class="image_style"  type="userAvatarUrl"></open-data>
     </view>
@@ -15,10 +11,15 @@
     <text decode="true">&nbsp; &nbsp; 用户名：</text>
     <open-data class="userinfo-nickname" type="userNickName"></open-data>
     </view>
-  
+    
   </view>
-  
+  -->
   <!-- 菜单栏 -->
+  <view class="recommend-bar">
+   <text decode="true">&nbsp;&nbsp;</text>
+  </view> 
+
+  <view class="content-list">
   <view class="menu_style">
     <view class="menu-optional" bindtap="published">
       <text decode="true">&nbsp;&nbsp;我发布的</text>
@@ -33,5 +34,6 @@
       <text decode="true">&nbsp;&nbsp;我的书币</text>
     </view>
   </view>
-
+  </view>
+  
 </view>

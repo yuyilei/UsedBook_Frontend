@@ -1,4 +1,37 @@
-<view class="content-list" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
+<!-- <view class="content-list" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
+  <view class="content-list-top"></view>
+  <view class="list-item">
+    <image src="{{item.picture}}"></image>
+  </view>
+
+  <view class="title-left">
+  {{item.name}}
+  </view> 
+
+
+  <view class="brief-style">
+  <text class="brief_style" decode="true">{{item.information}}</text>
+  </view>
+
+ <view class="press-style">
+    <text class="price_style" decode="true">^&nbsp;{{item.price}}</text>
+    <view wx:if="{{item.islike == false}}" class="notlike-style">
+      <image src="../../images/tabbar/notlike.png"></image>
+    </view>
+    <view wx:if="{{item.islike == true}}" class="like-style">
+      <image src="../../images/tabbar/like.png"></image>
+    </view>
+  </view> 
+
+</view>  -->
+
+
+<!-- 推荐标题 -->
+<view class="recommend-bar">
+   <text decode="true">&nbsp;&nbsp;</text>
+</view>
+
+<view class="content-list" data-id="{{item.id}}" data-bookid="{{item.id}}" bindtap="todetail" wx:for="{{second_data}}"  wx:key= "id">
   <view class="content-list-top"></view>
   <view class="list-item">
     <image src="{{item.image}}"></image>
@@ -8,20 +41,43 @@
   {{item.name}}
   </view> 
 
+
+
   <!-- 简介 -->
   <view class="brief-style">
   <text class="brief_style" decode="true">{{item.brief}}</text>
   </view>
 
+ <view class="status-style"> 
+      <view wx:if="{{item.is_selt == true}}">
+      <text decode="true" class="selt_style">已售出</text> 
+      </view>
+      <view wx:if="{{item.is_selt == false}}">
+      <view wx:if="{{item.on_sell == true}}">
+      <text decode="true" class="onsell_style">已上架</text>  
+
+      </view>
+       <view wx:if="{{item.on_sell == false}}">
+      <text decode="true" class="offsell_style">已下架</text> 
+      </view>
+      </view>
+    </view>
+    </view>
+
+  
   <!-- 价格 -->
    <view class="press-style">
-    <text class="price_style" decode="true">^&nbsp;{{item.prize}}</text>
+    <text class="price_style" decode="true">^&nbsp;{{item.price}}</text>
     <view wx:if="{{item.islike == false}}" class="notlike-style">
       <image src="../../images/tabbar/notlike.png"></image>
     </view>
     <view wx:if="{{item.islike == true}}" class="like-style">
       <image src="../../images/tabbar/like.png"></image>
     </view>
-  </view> 
+    <view class="collect-count-style">
+    <text decode="true">&nbsp;{{item.collect_count}}</text>
+    </view>
+
+   
 
 </view>

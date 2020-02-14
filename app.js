@@ -7,6 +7,7 @@ App({
     port: ":5000",
     token: "",
     openid: "",
+    userid: null,
   },
  
 
@@ -32,6 +33,7 @@ App({
           success: _res => {
             if (_res.statusCode == 200) {
               this.globalData.token = _res.data['token']
+              this.globalData.userid = _res.data['id']
             }
             if (this.userTokenReadyCallback) {
               _res.token = _res.data['token']
@@ -137,6 +139,7 @@ App({
               if (res.statusCode == 200) {
                 that.token = res.data['token']
                 // console.log("token " + that.token)
+                that.userid = res.data['id']
                 resolve(res);
                 // break
               }

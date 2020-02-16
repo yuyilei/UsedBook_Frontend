@@ -67,24 +67,6 @@ App({
         }
       }
     })
-
-   /* var tryCount = 5;
-    // var that = this;
-    while (this.globalData.token == "" && tryCount > 0) {
-      this.userLogin().then((res) => {
-        this.globalData.token = res.data['token']
-        // that.token = res.data['token']
-        console.log("res.data ", this.globalData.token)
-      }, (error) => {
-        console.log("user login failed, error= ", error.data['message'])
-      })
-      // that.userLogin()
-      tryCount--
-    }
-    console.log("tryCount: ", tryCount)
-    console.log("onlaunch: ", this.globalData.token) */ 
-
-
   }, 
 
   get_openid: function (options) {
@@ -100,25 +82,7 @@ App({
       }
     }) 
   }, 
- /*
-  onLaunch: function (options) {
-    var tryCount = 5;
-    var that = this;
-    while (that.token == "" && tryCount > 0) {
-      that.userLogin().then((res) => {
-         this.setData({token: res.data['token']})
-         that.token = res.data['token']
-         console.log("res.data ", that.token)
-      }, (error) => {
-        console.log("user login failed, error= ", error.data['message'])
-      })
-      // that.userLogin()
-      tryCount--
-    }
-    console.log("tryCount: ", tryCount)
-    console.log("onlaunch: ", that.token)
-  }, 
- */
+
   userLogin: function () {
     // login with weixin's open_id
     var that = this;
@@ -152,9 +116,7 @@ App({
           })
         }
       })
-      // console.log("out openid: " + that.openid + " ")
     })
-    // console.log("!!!! ", that.openid)
     return promise
   }
 }

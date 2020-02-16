@@ -29,9 +29,8 @@ Page({
       ], */
       second_data: null,
       token: null,
+      update_username: false,   // 每次登录更新一次username 
   },
-
-  _token: null,
 
   /**
    * 生命周期函数--监听页面加载
@@ -39,10 +38,9 @@ Page({
   onLoad: function (options) {
     var that = this;
     if (app.globalData.token) {
-      this.setData({
+      that.setData({
         token: app.globalData.token
       })
-      this._token = app.globalData.token
       this.get_market()
     }
     else {
@@ -52,8 +50,24 @@ Page({
       that.setData({
         token: res
       })
-      this._token = res
       this.get_market()
+      }
+    }
+
+    if (this.data.update_username == false) {   // 还未更新username
+      app.userInfoReadyCallback = res => {
+        let json_data = JSON.parse(res.rawData)
+        var url = "/auth/username/"
+        var data = {
+          username: json_data["nickName"]
+        }
+        var header = { token: app.globalData.token }
+        requestHandler.syncRequest(url, data, header, "POST").then(res => {
+          console.log("callback update: nickname= ", json_data["nickName"])
+          that.setData({
+            update_username: true 
+          })
+        }) 
       }
     }
   },
@@ -66,7 +80,7 @@ Page({
     var that = this
     wx.request({
       url: app.globalData.hostName + app.globalData.port + "/book/market/",
-      header: { 'token': this._token},
+      header: { 'token': this.data.token},
       method: 'GET',
       success: function (res) {
         if (res.statusCode === 200) {

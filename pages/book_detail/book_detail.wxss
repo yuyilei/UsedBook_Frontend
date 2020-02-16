@@ -106,6 +106,14 @@
   width: 88%;
 }
 
+
+.button_type2 {
+  height: 75rpx;
+  left: 29%;
+  background-color: #d9d3ec;
+  position: static;
+  width: 88%;
+}
 .collect-count-style{
   color: rgb(188, 186, 197);
 }
@@ -114,6 +122,13 @@
   display: flex;
   font-size: 28rpx;
   line-height: 38rpx;
+  color: #c9c9c9;
+}
+
+.names2 {
+  display: flex;
+  font-size: 25rpx;
+  line-height: 35rpx;
   color: #c9c9c9;
 }
  

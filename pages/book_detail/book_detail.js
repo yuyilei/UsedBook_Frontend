@@ -9,23 +9,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hideForm: true, 
     second_data: null,
-    comments: [
-      {
-        userName: "test", 
-        replyUserName: "test2", 
-        comment: "评论", 
-        insertTime: "5分钟前",
-        userPhoto: "http://img2.imgtn.bdimg.com/it/u=1714140843,3386272407&fm=26&gp=0.jpg", 
-      },
-      {
-        userName: "test",
-        replyUserName: "test2",
-        comment: "评论",
-        insertTime: "5分钟前", 
-        userPhoto: "http://img2.imgtn.bdimg.com/it/u=1714140843,3386272407&fm=26&gp=0.jpg", 
-      },
-    ]
+    comments: [], 
+    replyTo: null, 
+    replyId: null,
+    hideCommentButton: false, 
+    bookId: null,
   },
 
   /**
@@ -34,6 +24,9 @@ Page({
 
   get_detail(book_id) {
     var that = this
+    that.setData({
+      bookId: book_id, 
+    })
     wx.request({
       url: app.globalData.hostName + app.globalData.port + "/book/detail/",
       header: { 'token': app.globalData.token },
@@ -155,7 +148,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -234,4 +227,69 @@ Page({
     }) 
   }, 
 
+  submitForm: function(e) {
+    var that = this
+    let comment = e.detail.value.comment 
+    let book_id = this.data.second_data[0].id 
+    let reply_id = this.data.replyId
+    var url = "/book/comment/"
+    var header = { token: app.globalData.token } 
+    var data = {
+      book_id: book_id, 
+      content: comment,
+      reply_id: null,
+    }
+    if (reply_id != null) {
+      data.reply_id = reply_id
+    } 
+    requestHandler.syncRequest(url, data, header, "POST").then(res => {
+      if (reply_id != null) {
+        wx.showToast({
+          title: '回复成功！',
+        })
+      } else {
+        wx.showToast({
+          title: '评论成功！',
+        })
+      }
+      that.setData({
+        hideForm: true, 
+        hideCommentButton: false,
+      })
+      this.get_detail(this.data.bookId)
+    })
+  }, 
+
+  replyComment: function(e) {
+    var that = this; 
+    that.setData({
+      hideForm: false,
+      hideCommentButton: true, 
+      replyTo: e.currentTarget.dataset.replyto,
+      replyId: e.currentTarget.dataset.replyid, 
+    })
+  }, 
+
+  comment: function(e) {
+    var that = this;
+    that.setData({
+      hideForm: false,
+      hideCommentButton: true, 
+    })
+  }, 
+
+  deleteComment: function(e) {
+    var commentId = e.currentTarget.dataset.commentid 
+    var url = "/book/comment/"
+    var header = { token: app.globalData.token }
+    var data = {
+      comment_id: commentId
+    }
+    requestHandler.syncRequest(url, data, header, "DELETE").then(res => {
+      wx.showToast({
+        title: '删除成功！',
+      })
+      this.get_detail(this.data.bookId)
+    })
+  }, 
 })

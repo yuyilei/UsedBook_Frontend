@@ -84,3 +84,197 @@
   text-overflow:ellipsis;
   word-wrap:break-word;
 }
+
+
+
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/* large button style */
+.large-btn{
+	background: #f68135;
+	border-radius: 50rpx;
+	border: 1px solid #f68135;
+	color: #fff;
+	height: 100rpx;
+	line-height: 100rpx;
+	margin: 0 auto;
+	width: 96%;
+	text-align: center;
+}
+.large-btn.empty{
+	background: transparent;
+	color: #f68135;
+  margin-top: 50rpx;
+}
+.large-btn.disabled{
+	border-color: #ccc;
+	background: #ccc;
+	color: #fff;
+}
+/* public style to clear default styles */
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+  color: #999
+}
+.fc{
+  float:none;
+}
+.col-gray{
+	color: #999!important;
+}
+ 
+ 
+/* the message of auction about goods & cars */
+.pro-con{
+	padding: 10rpx;
+	background: #f1f1f1;
+}
+.pro-box{
+	background: #fff;
+	padding: 10rpx;
+	box-sizing: border-box;
+	border-radius: 10rpx;
+	margin-bottom: 0rpx;
+}
+.pro-box .img{
+	display: inline-block;
+	vertical-align: top;
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10rpx;
+}
+.pro-box .box{
+	display: inline-block;
+	vertical-align: top;
+	width: calc(98% - 80rpx);
+}
+.pro-box .shead{
+	padding-bottom: 10rpx;
+}
+.pro-box .shead .name{
+	font-size: 30rpx;
+	line-height: 40rpx;
+}
+.pro-box .shead .stxt{
+	font-size: 26rpx;
+	color: #999;
+}
+.pro-box .shead .fr{
+	padding-top: 10rpx;
+}
+.pro-box .shead .fr navigator{
+	font-size: 0;
+}
+.pro-box .shead .fr image{
+	width: 48rpx;
+	height: 48rpx;
+}
+ .pro-box .sharebtn{
+  width: 72px;
+  line-height: 35rpx;
+  font-size: 23rpx;
+  background-color: #d9d3ec;
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+  margin-right: 0rpx;
+  margin-bottom: 0rpx;
+} 
+ 
+.pro-box .addr-info{
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px dashed #ccc;
+	margin: 0 -20rpx;
+	margin-bottom: 0rpx;
+	padding-bottom: 10rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+  display: inline-block;
+}
+ 
+.pro-box .addr-info .addr-text{
+	font-size: 10rpx;
+	line-height: 40rpx;
+  margin-right: 10rpx;
+  margin-bottom: 40rpx;
+}
+ 
+.pro-box .position{
+	width: 48rpx;
+	height: 48rpx;
+} 
+ 
+.pro-box .comment{
+	width: 55rpx;
+	height: 48rpx;
+} 
+ 
+.pro-box .addr{
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px dashed #ccc;
+	margin: 0 -20rpx;
+	margin-bottom: 0rpx;
+	padding-bottom: 10rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+  display: flex;
+}
+ 
+.pro-box .addr .addr-text{
+	font-size: 12rpx;
+	line-height: 40rpx;
+	max-width: 240rpx;
+	min-width:200rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.pro-box .addr .addr-text .color-text{
+  color: #f68135;
+}
+.pro-box .addr .time{
+	font-size: 26rpx;
+	line-height: 36rpx;
+	text-align: center;
+}
+
+.pro-box .info{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.pro-box .info .text{
+  vertical-align:text-top;
+	font-size: 26rpx;
+}
+.pro-box .info .text .delete{
+  color: #f68135;
+	border-radius: 50rpx;
+	border: 1px solid #f68135;
+	width: 100rpx;
+	height: 48rpx;
+	text-align: center;
+}
+
+
+.comment-content{
+  font-size: 30rpx;
+	line-height: 40rpx;
+  margin-left: 13rpx;
+  margin-top: 0rpx;
+}

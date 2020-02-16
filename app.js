@@ -65,10 +65,14 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
               var nickName = res.userInfo.nickName
+              var avatar = res.userInfo.avatarUrl
               wx.request({
                 url: this.globalData.hostName + this.globalData.port + "/auth/username/", 
                 header: {token : this.globalData.token}, 
-                data: {username: nickName}, 
+                data: {
+                  username: nickName,
+                  avatar: avatar, 
+                  }, 
                 method: 'POST', 
                 success: res => {
                   if (res.statusCode == 200) {

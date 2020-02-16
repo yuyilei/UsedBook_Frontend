@@ -5,9 +5,6 @@
       <swiper-item>
         <image src="{{item.image}}"></image>
       </swiper-item>
-      <!-- <swiper-item>
-        <image src="cloud://xust-second-w7q6y.7875-xust-second-w7q6y-1300410405/images/homephoto01.jpg"></image>
-      </swiper-item> -->
     </swiper>
 
     <!-- 时间 -->
@@ -18,16 +15,20 @@
 
     <view class="title-height">
       <!-- 标题 -->
-      <view class="title-type" style="height:100rpx">标题：\n{{item.name}}</view>
+      <view class="title-type">标题</view>
+      <text decode="true" class="time-style2">{{item.publish_time}}</text>
+      <view class="title-content" style="height:70rpx">{{item.name}}</view>
       </view>
 
     <view class="cut-line"></view>
 
-    <view class="title-type" style="height:100rpx">标签：\n{{item.tags}}</view>
+    <view class="title-type">标签</view>
+    <view class="title-content" style="height:70rpx">{{item.tags}}</view>
 
     <view class="cut-line"></view>
 
-    <view class="title-type" style="height:150rpx">详细信息：\n{{item.brief}}</view>
+    <view class="title-type">详细信息</view>
+    <view class="title-content" style="height:120rpx">{{item.brief}}</view>
 
   
      <!-- 价格 -->
@@ -42,6 +43,10 @@
       <text decode="true">&nbsp;{{item.collect_count}}</text>
     </view>
   </view> 
+
+  <view class="cut-line3"></view>
+
+
 
   <!-- todo： 判断是不是自己，显示不同的按钮 -->
   <!-- 不是自己发布的，显示购买按钮-->
@@ -60,11 +65,106 @@
   </view> 
   </view>
   
-    <view class="cut-line"></view>
 
-    <view class="title-type" style="height:100rpx">联系方式：\n{{item.need_connect}}
-    </view>
+    <view class="title-type">联系方式</view>
+    <view class="title-content"> {{item.need_connect}} </view>
 
-    <view class="cut-line"></view>
   </view>
+
+
+  <!-- 评论 --> 
+<!-->  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh"> -->
+<!--  <view class="pro-con"> -->
+ <!-->   <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="pro-box">
+        <view class="head">
+          <image class="img" src="{{item.userPhoto}}" mode="aspectFit"></image>
+          <view class="box">
+            <view class="shead clear">
+              <view class="names fl">{{item.userName}}
+                  <view wx:if="{{!item.replyUserName == \" \"}}">
+                  -> {{item.replyUserName}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="addr-info">
+          <view class="addr-text">
+            {{item.comment}}
+          </view>
+        </view>
+        <view class="info">
+          <view class="text">
+            <text decode="true">{{item.insertTime}}</text>
+          </view>
+          <view class="text">
+            <button class="sharebtn" data-commentId="{{item.id}}" data-commentUserName="{{item.userName}}" bindtap="bindReply">回复</button>
+          </view>
+              <view wx:if="{{item.userId == userId}}" class="status text fr">
+                <text class="delete" decode="true" bindtap='deleteComment' data-CommentId="{{item.id}}">删除</text>
+              </view>
+        </view>
+      </view>
+    </block>
+<!--  </view>
+<!-- </scroll-view>
+<!-- >
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="release">
+    <view  wx:if="{{reply}}" class="replyinfo1">
+      回复<text class="text">{{replyUserName}}</text>
+      <button class="cancel" bindtap="cancleReply">取消回复</button>
+    </view>
+    <view class="replyinfo2">
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入回复" name="comment"></textarea>
+      <button form-type="submit" class="submit">发送</button>
+    </view>
+  </view>
+</form> -->
+
+
+ <view> 
+  <block wx:for="{{comments}}" wx:key="index"> 
+  <view class="pro-con">
+    <view class="pro-box">
+      <view class="head">
+        <image class="img" src="{{item.userPhoto}}" mode="aspectFit"></image>
+        <view class="box">
+         <view class="shead clear"> 
+            <text class="names">{{item.userName}}</text>
+            <text class="names" wx:if="{{item.replyUserName}}">回复 {{item.replyUserName}}</text>
+             <text class="time-style" decode="true">{{item.insertTime}}</text>
+            <view wx:if="{{item.userId == userId}}" class="status text fr">
+                <text decode="true" class="delete-text" bindtap='deleteComment' data-CommentId="{{item.id}}">删除</text>
+          </view>
+          </view>
+       </view> 
+      </view>
+      <view class="comment-content">
+            {{item.comment}}
+      </view>
+          </view>
+        </view>
+  </block>
+ </view>
+
+
+
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="release"> 
+    <view  wx:if="{{reply}}" class="replyinfo1">
+      回复<text class="text">{{replyUserName}}</text>
+      <button class="cancel" bindtap="cancleReply">取消回复</button>
+    </view>
+    <view class="replyinfo2">
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入回复" name="comment"></textarea>
+      <button form-type="submit" class="submit">发送</button>
+    </view>
+  </view>
+</form>
+
 </scroll-view>
+
+
+

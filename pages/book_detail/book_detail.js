@@ -10,6 +10,22 @@ Page({
    */
   data: {
     second_data: null,
+    comments: [
+      {
+        userName: "test", 
+        replyUserName: "test2", 
+        comment: "评论", 
+        insertTime: "5分钟前",
+        userPhoto: "http://img2.imgtn.bdimg.com/it/u=1714140843,3386272407&fm=26&gp=0.jpg", 
+      },
+      {
+        userName: "test",
+        replyUserName: "test2",
+        comment: "评论",
+        insertTime: "5分钟前", 
+        userPhoto: "http://img2.imgtn.bdimg.com/it/u=1714140843,3386272407&fm=26&gp=0.jpg", 
+      },
+    ]
   },
 
   /**
@@ -27,7 +43,10 @@ Page({
         if (res.statusCode === 200) {
           var result = []
           result.push(res.data['book'])
-          that.setData({ second_data: result })
+          that.setData({ 
+            second_data: result,
+            comments: res.data['comments']
+          })
         }
       },
       fail: function (res) {

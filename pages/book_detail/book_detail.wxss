@@ -30,9 +30,54 @@
 }
 
 
+.comment-cut-line{
+  border-bottom:1.5px dotted  #eee;
+  margin-left: 20rpx;
+  margin-right:20rpx;
+  background-color: #eee;
+}
+
+.cut-line2{
+  display: flex;
+  height: 5rpx;
+  margin-top: 25rpx;
+  margin-bottom: 0rpx;
+  margin-left: 0rpx;
+  margin-right:0rpx;
+  background-color: #eee;
+}
+
+
+
+.cut-line3{
+  display: flex;
+  height: 5rpx;
+  margin-top: 0rpx;
+  margin-bottom: 20rpx;
+  margin-left: 0rpx;
+  margin-right:0rpx;
+  background-color: #eee;
+}
+
+
+.delete-text{
+  font-size: 25rpx;
+}
+
+
 .title-type{
   white-space: pre-wrap;
   word-wrap:break-word;
+  color: #afaeae;
+  font-size: 27rpx;
+  height:40rpx;
+}
+
+.title-content{
+  white-space: pre-wrap;
+  word-wrap:break-word;
+  font-size: 30rpx;
+  height:100rpx;
 }
 
 
@@ -55,7 +100,7 @@
 .button_type {
   height: 75rpx;
   left: 29%;
-  bottom: 0rpx;
+  margin-top: 85rpx;
   background-color: #d9d3ec;
   position: absolute;
   width: 88%;
@@ -63,4 +108,101 @@
 
 .collect-count-style{
   color: rgb(188, 186, 197);
+}
+
+.names {
+  display: flex;
+  font-size: 28rpx;
+  line-height: 38rpx;
+  color: #c9c9c9;
+}
+ 
+.time-style{
+  font-size: 24rpx;
+  color: #d1c1c1;
+} 
+
+.time-style2{
+  font-size: 24rpx;
+  color: #d1c1c1;
+  float: right;
+} 
+
+.input_null {
+  color: #c9c9c9;
+}
+ 
+.replyAll {
+  position:absolute;
+}
+ 
+.release {
+  align-items: stretch; /*底部对齐*/
+  box-sizing: border-box;
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 18rpx 18rpx 18rpx 18rpx;
+  background-color: #f7f8f7;
+  font-size: 28rpx;
+  z-index: 999;
+}
+ 
+.replyinfo1{ 
+  display: flex;
+  justify-content: space-between; /*两端对齐*/
+  font-size: 35rpx;
+}
+.replyinfo2{ 
+  display: flex;
+  justify-content: space-between; /*两端对齐*/
+}
+ 
+.release textarea {
+  width: 550rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #fff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+}
+ 
+.release .text {
+  font-size: 40rpx;
+  color: #c9c9c9;
+}
+ 
+.cancel {
+  width: 240rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
+  margin: 0 3px;
+  padding: 0;
+}
+ 
+.release .submit {
+  width: 120rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
+  margin: 0 3px;
+  padding: 0;
+}
+ 
+.pro-box .info .text .delete {
+  color: #f68135;
+  border-radius: 50rpx;
+  border: 1px solid #f68135;
+  font-size: 28 rpx;
+  width: 150rpx;
+  height: 48rpx;
+  text-align: center;
 }

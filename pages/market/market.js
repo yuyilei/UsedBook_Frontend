@@ -29,7 +29,6 @@ Page({
       ], */
       second_data: null,
       token: null,
-      update_username: false,   // 每次登录更新一次username 
   },
 
   /**
@@ -41,7 +40,7 @@ Page({
       that.setData({
         token: app.globalData.token
       })
-      this.get_market()
+      this.getMarket()
     }
     else {
     // 给app.js 定义一个方法。
@@ -50,33 +49,16 @@ Page({
       that.setData({
         token: res
       })
-      this.get_market()
+      this.getMarket()
       }
     }
-
-    if (this.data.update_username == false) {   // 还未更新username
-      app.userInfoReadyCallback = res => {
-        let json_data = JSON.parse(res.rawData)
-        var url = "/auth/username/"
-        var data = {
-          username: json_data["nickName"]
-        }
-        var header = { token: app.globalData.token }
-        requestHandler.syncRequest(url, data, header, "POST").then(res => {
-          console.log("callback update: nickname= ", json_data["nickName"])
-          that.setData({
-            update_username: true 
-          })
-        }) 
-      }
-    }
-  },
+  }, 
 
   /**
    * 获取首页数据 
    */
 
-  get_market() {
+  getMarket() {
     var that = this
     wx.request({
       url: app.globalData.hostName + app.globalData.port + "/book/market/",
@@ -105,7 +87,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.get_market()
+    this.getMarket() 
   },
 
   /**

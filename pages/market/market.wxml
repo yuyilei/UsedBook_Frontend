@@ -6,11 +6,11 @@
             <!-- 搜索框 -->
                 <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="请输入关键字"/>
+                    <input type="text" bindinput="keywordInput" class="weui-search-bar__input" placeholder="请输入关键字"/>
                 </view>
             </view>
             <!-- 搜索按钮,调用搜索查询方法 -->
-            <view class="weui-search-bar__cancel-btn" bindtap='searchBook'>搜索</view>
+            <view class="weui-search-bar__cancel-btn" bindtap="searchBook">搜索</view>
         </view>
     </view>
 </view>

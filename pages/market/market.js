@@ -1,5 +1,5 @@
 const app = getApp() 
-const requestHandler = require('../../common/requestHandler.js'); 
+const requestHandler = require('../../common/requestHandler.js')
 
 Page({
 
@@ -29,6 +29,7 @@ Page({
       ], */
       second_data: null,
       token: null,
+      keywordInput: "",
   },
 
   /**
@@ -125,8 +126,29 @@ Page({
     
   },
 
-  searchBook: function () {
+  searchBook: function (e) {
+    var that = this
+    var keyword = this.data.keywordInput
+    var url = "/book/search/"
+    var header = { token: app.globalData.token }
+    var data = {
+      keyword: keyword
+    }
+    requestHandler.syncRequest(url, data, header, "GET").then(res => {
+      wx.showToast({
+        title: '搜索成功！',
+      })
+      that.setData({
+        second_data: res.data['book_list']
+      })
+    })
+  },
 
+  keywordInput: function(e) {
+    var that = this 
+    that.setData({
+      keywordInput: e.detail.value 
+    })
   },
 
   todetail: function (e) {

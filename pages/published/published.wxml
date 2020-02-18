@@ -63,21 +63,3 @@
       </view>
     </view>
     </view>
-
-  
-  <!-- 价格 -->
-   <view class="press-style">
-    <text class="price_style" decode="true">^&nbsp;{{item.price}}</text>
-    <view wx:if="{{item.islike == false}}" class="notlike-style">
-      <image src="../../images/tabbar/notlike.png"></image>
-    </view>
-    <view wx:if="{{item.islike == true}}" class="like-style">
-      <image src="../../images/tabbar/like.png"></image>
-    </view>
-    <view class="collect-count-style">
-    <text decode="true">&nbsp;{{item.collect_count}}</text>
-    </view>
-
-   
-
-</view>

@@ -35,6 +35,12 @@ App({
             if (_res.statusCode == 200) {
               this.globalData.token = _res.data['token']
               this.globalData.userid = _res.data['id']
+              var first_login = _res.data['coin_task_success'] 
+              if (first_login == true) {
+                wx.showToast({
+                  title: '每日登录 +5书币!',
+                })
+              }
             }
             if (this.userTokenReadyCallback) {
               _res.token = _res.data['token']

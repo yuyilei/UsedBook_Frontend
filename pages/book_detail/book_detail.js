@@ -249,15 +249,20 @@ Page({
       data.reply_id = reply_id
     } 
     requestHandler.syncRequest(url, data, header, "POST").then(res => {
+      var message = ""
       if (reply_id != null) {
-        wx.showToast({
-          title: '回复成功！',
-        })
+        message = "回复成功"
       } else {
-        wx.showToast({
-          title: '评论成功！',
-        })
+        message = "评论成功"
+      } 
+      if (res.data["coin_task_success"] == true) {
+        message += "书币+2"
+      } else {
+        message += "!"
       }
+      wx.showToast({
+        title: message,
+      })
       that.setData({
         hideForm: true, 
         hideCommentButton: false,

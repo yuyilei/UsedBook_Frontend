@@ -89,7 +89,6 @@ Page({
           that.setData({
             imageURL: "http://" + res.imageURL,
           });
-          console.log('file url is: ' + res.imageURL);
       }, (error) => {
         console.log('error: ' + error)
       }, {
@@ -97,9 +96,7 @@ Page({
             domain: bucket, 
             uptoken: qiniuToken, 
           }, (res) => {
-           // console.log('上传进度', res.progress)
-           // console.log('已经上传的数据长度', res.totalBytesSent)
-           // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+            
           }, () => {
             // 取消上传
           }, () => {
@@ -255,13 +252,19 @@ Page({
       }
       var header = { token: app.globalData.token }
       requestHandler.syncRequest(url, data, header, "POST").then(res => {
-          wx.showToast({
-            title: '发布成功!', 
-          })
-          wx.navigateTo({
-            // url: '/pages/market/market',
-            url: '/pages/book_detail/book_detail?book_id=' + res.data['book_id'],
-          })
+        var message = "发布成功" 
+        if (res.data["coin_task_success"] == true) {
+          message += "书币+2"
+        } else {
+          message += "!"
+        }
+        wx.showToast({
+          title: message, 
+        })
+        console.log("message ", message)
+        wx.navigateTo({
+          url: '/pages/book_detail/book_detail?book_id=' + res.data['book_id'],
+        })
       }) 
     },  
   });

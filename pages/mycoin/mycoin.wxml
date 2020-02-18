@@ -1,27 +1,30 @@
 <!--pages/mycoin/mycoin.wxml-->
 
-  <!-- 菜单栏 -->
+  <view class="recommend-bar">
+   <text decode="true">&nbsp;&nbsp;</text>
+  </view> 
+
+  <view class="content-list">
   <view class="menu_style">
-    <view class="menu-optional">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;我的书币：</text>
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20</text>
+  <view class="menu-optional">
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的书币:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text><text class="coin-style">{{myCoinCount}}</text>
     </view>
     <view class="menu-optional">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;签到 +5书币</text>
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/1</text>
-    </view>
-    <!-- 
-    <view class="menu-optional">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;评论 +2书币</text>
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/5</text> 
-    </view>
-    -->
-    <view class="menu-optional">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;收藏 +2书币</text>
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/1</text>
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录 +5书币&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> 
+      <div class="coin-style">{{taskCount.login}}/{{maxTaskCount.login}}</div>
     </view>
     <view class="menu-optional">
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;发布 +2书币</text>
-      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1/1</text>
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收藏 +2书币&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <div class="coin-style">{{taskCount.collect}}/{{maxTaskCount.collect}}</div>
+    </view>
+    <view class="menu-optional">
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布 +2书币&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <div class="coin-style">{{taskCount.publish}}/{{maxTaskCount.publish}}</div>
+    </view>
+    <view class="menu-optional">
+      <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评论 +2书币&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <div class="coin-style">{{taskCount.comment}}/{{maxTaskCount.comment}}</div>
     </view>
   </view>
+  </view>
+  

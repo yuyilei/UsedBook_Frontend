@@ -16,6 +16,7 @@ Page({
     replyId: null,
     hideCommentButton: false, 
     bookId: null,
+    hasComment: false, 
   },
 
   /**
@@ -36,9 +37,14 @@ Page({
         if (res.statusCode === 200) {
           var result = []
           result.push(res.data['book'])
+          var hasComment = false
+          if (res.data['comment_count']) {
+            hasComment = true
+          }
           that.setData({ 
             second_data: result,
-            comments: res.data['comments']
+            comments: res.data['comments'], 
+            hasComment: hasComment,
           })
         }
       },

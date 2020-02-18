@@ -69,6 +69,7 @@
     <view class="title-type">联系方式</view>
     <view class="title-content"> {{item.need_connect}} </view>
 
+<view wx:if="{{hasComment == false}}" class="cut-line3"></view>
   </view>
 
 

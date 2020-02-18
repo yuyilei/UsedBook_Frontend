@@ -98,11 +98,9 @@
 
 
 .button_type {
-  height: 75rpx;
   left: 29%;
-  margin-top: 85rpx;
   background-color: #d9d3ec;
-  position: absolute;
+  position: static;
   width: 88%;
 }
 

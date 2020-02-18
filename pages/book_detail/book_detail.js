@@ -220,8 +220,14 @@ Page({
           second_data: newdata
         })
       } else {
+        var message = "收藏成功"
+        if (res.data["coin_task_success"] == true) {
+          message += "书币+2"
+        } else {
+          message += "!"
+        }
         wx.showToast({
-          title: '收藏成功!',
+          title: message,
         })
         var newdata = this.data.second_data
         newdata[index].islike = true

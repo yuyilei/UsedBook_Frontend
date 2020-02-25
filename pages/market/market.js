@@ -7,29 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-     /* second_data: [
-      {
-        name: '计算机组成原理',
-        price: '15', 
-        id: 1,
-        islike: false,
-        image: '../../images/book/os.jpg',
-        brief: '书很新，笔记很少，是正版',
-        collect_count: 10,
-      },
-      {
-        name: '现代操作系统',
-        price: '20',
-        id: 2,
-        islike: true,
-        image: '../../images/book/os.jpg',
-        brief: '和习题解答一起出',
-        collect_count: 5,
-      }
-      ], */
       second_data: null,
       token: null,
       keywordInput: "",
+      getUserInfoButton: false, 
   },
 
   /**
@@ -88,6 +69,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this 
+    that.setData({
+      getUserInfoButton: app.globalData.getUserInfoButton,
+    })
     this.getMarket() 
   },
 

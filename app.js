@@ -9,6 +9,7 @@ App({
     token: "",
     openid: "",
     userid: null,
+    getUserInfoButton: false, // 是否显示获得用户信息的验证按钮 
   },
  
 
@@ -64,7 +65,9 @@ App({
   getUserInfo: function() {
     wx.getSetting({
       success: res => {
+        console.log("userInfo ", res.authSetting['scope.userInfo'])
         if (res.authSetting['scope.userInfo']) {
+          this.getUserInfoButton = false
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -93,6 +96,9 @@ App({
               }
             }
           })
+        } else {
+          // 没有获得授权，显示按钮，获得授权
+          this.getUserInfoButton = true 
         }
       }
     })

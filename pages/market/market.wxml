@@ -15,6 +15,10 @@
     </view>
 </view>
 
+<view wx:if="{{getUserInfoButton == true}}">
+<button open-type="getUserInfo"> 点击授权 </button>
+</view>
+
 <!-- 推荐标题 -->
 <view class="recommend-bar">
    <text decode="true">&nbsp;&nbsp;</text>

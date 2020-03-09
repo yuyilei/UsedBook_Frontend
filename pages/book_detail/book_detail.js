@@ -2,6 +2,9 @@
 
 const app = getApp()
 const requestHandler = require('../../common/requestHandler.js'); 
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 Page({
 
@@ -60,21 +63,46 @@ Page({
    */
    
    topurchase(e) {
-     var book_id = e.currentTarget.dataset.id
-     var that = this
-     var url = "/book/purchase/"
-     var data = {
-       book_id: book_id
-     }
-     var header = { token: app.globalData.token }
-     requestHandler.syncRequest(url, data, header, "POST").then(res => {
-       wx.showToast({
-         title: '购买成功!',
-       })
-       wx.navigateBack({
-         delta: 1,
-       })
-     }) 
+     var price = e.currentTarget.dataset.price
+     wx.showModal({
+       title: '提示',
+       content: '是否支付' + price + '个书币购买此书?',
+       success: function (_res) {
+         if (_res.confirm) {
+           var book_id = e.currentTarget.dataset.id
+           var that = this
+           var url = "/book/purchase/"
+           var data = {
+             book_id: book_id
+           }
+           var header = { token: app.globalData.token }
+           requestHandler.syncRequest(url, data, header, "POST").then(res => {
+             if (res.statusCode == 403) {
+               wx.showToast({
+                 title: '书币不足，无法购买!',
+                 icon: "none", 
+                 duration: 1500, 
+               })
+             }
+             else {
+              wx.showToast({
+                title: '购买成功!',
+                duration: 1500, 
+                success: function(res) {
+                sleep(3000).then(() => {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                 })
+                }
+              })
+             }  
+           }) 
+         } else {
+
+         }
+       }
+     })
    }, 
 
   /**

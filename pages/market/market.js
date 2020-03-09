@@ -11,6 +11,7 @@ Page({
       token: null,
       keywordInput: "",
       getUserInfoButton: false, 
+      backFromSearch: false, 
   },
 
   /**
@@ -26,8 +27,10 @@ Page({
     }
     else {
     // 给app.js 定义一个方法。
+    that.setData({
+        backFromSearch: false,
+      })
     app.userTokenReadyCallback = res => {
-      console.log('获取用户信息成功');
       that.setData({
         token: res
       })
@@ -41,6 +44,10 @@ Page({
    */
 
   getMarket() {
+    if (this.data.backFromSearch) {
+      // 如果是从搜索页面回来的，就不刷新
+      return 
+    }
     var that = this
     wx.request({
       url: app.globalData.hostName + app.globalData.port + "/book/market/",
@@ -69,7 +76,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this 
+    var that = this
     that.setData({
       getUserInfoButton: app.globalData.getUserInfoButton,
     })
@@ -126,6 +133,9 @@ Page({
       that.setData({
         second_data: res.data['book_list']
       })
+    })
+    that.setData({
+      backFromSearch: true, 
     })
   },
 

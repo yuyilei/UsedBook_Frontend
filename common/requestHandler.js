@@ -33,7 +33,7 @@ function syncRequest(url, data, header, method) {
             icon: 'loading',
             duration: 1000
           });
-          resolve(null);
+          resolve(result);
           return;
         }
         resolve(result);
